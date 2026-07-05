@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="style_cont.css"> 
+</head>
+<body>
+
+<div id="notificacao" class="popup-toast">
+    <span id="icone-notificacao">✅</span>
+    <span id="texto-notificacao">Mensagem enviada com sucesso!</span>
+</div>
+
+<header class="topo">
+    <a href="https://www.youtube.com/@Oprop123" target="_blank">
+        <img src="channels4_profile.jpg" alt="Canal">
+    </a>
+
+    <h1>Contato</h1>
+
+    <nav class="menu">
+        <a href="home.html" class="link-nav">Home</a>
+        <a href="Contato.html" class="p-contato-ativo link-nav">Contato</a>
+        <a href="sobre.html" class="p-ativo link-nav">Sobre mim</a>
+    </nav>
+</header>
+
+<hr>
+<main class="cards">
+    <div class="card">
+        <h2>Fale comigo</h2>
+
+        <form id="formContato" method="POST">
+            <input type="text" name="nome" placeholder="Seu nome" required>
+            <input type="email" name="email" placeholder="Seu e-mail" required>
+            <input type="text" name="assunto" placeholder="Assunto" required>
+            <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </div>
+</main>
+
+<script>
+    // ==========================================
+    // ANIMAÇÃO DE ENTRADA SUAVE (Faltava este bloco)
+    // ==========================================
+    // Adiciona a classe que oculta a página imediatamente
+    document.body.classList.add('entry-hidden');
+
+    // Quando o DOM estiver totalmente carregado, removemos a classe para iniciar a entrada
+    document.addEventListener('DOMContentLoaded', () => {
+        // Pequeno atraso para garantir que o navegador perceba a mudança
+        setTimeout(() => {
+            document.body.classList.remove('entry-hidden');
+        }, 10); // 10ms é suficiente
+    });
+
+    // ==========================================
+    // NOTIFICAÇÃO TOAST (ENVIO DE FORMULÁRIO) - (mantemos)
+    // ==========================================
+    function mostrarNotificacao(mensagem, sucesso = true) {
+        const popup = document.getElementById('notificacao');
+        const texto = document.getElementById('texto-notificacao');
+        const icone = document.getElementById('icone-notificacao');
+
+        texto.innerText = message = mensagem;
+        
+        if(sucesso) {
+            popup.classList.remove('erro');
+            icone.innerText = "✅";
+        } else {
+            popup.classList.add('erro');
+            icone.innerText = "❌";
+        }
+
+        popup.classList.add('show');
+
+        setTimeout(() => {
+            popup.classList.remove('show');
+        }, 4000);
+    }
+
+    document.getElementById('formContato').addEventListener('submit', function(e) {
+        e.preventDefault(); 
+
+        const btn = this.querySelector('button');
+        btn.innerText = "Enviando...";
+        btn.disabled = true;
+
+        const formData = new FormData(this);
+
+        fetch('enviar.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            if(data.trim() === "ok") {
+                mostrarNotificacao("Mensagem enviada com sucesso!", true);
+                document.getElementById('formContato').reset(); 
+            } else {
+                mostrarNotificacao("Erro: " + data, false);
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            mostrarNotificacao("Erro de conexão com o servidor.", false);
+        })
+        .finally(() => {
+            btn.innerText = "Enviar Mensagem";
+            btn.disabled = false;
+        });
+    });
+
+    // ==========================================
+    // ANIMAÇÃO DE SAÍDA SUAVE DA PÁGINA (body.saindo) - (mantemos e unificamos tempos)
+    // ==========================================
+    document.querySelectorAll('.link-nav').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const destino = this.getAttribute('href');
+            
+            if (destino && destino !== "Contato.html") {
+                e.preventDefault();
+                document.body.classList.add('saindo');
+                
+                // Aguarda o tempo da animação do CSS (.4s = 400ms) para mudar de página
+                setTimeout(() => {
+                    window.location.href = destino;
+                }, 400); // 400ms
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

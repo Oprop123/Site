@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim</title>
+    <link rel="stylesheet" href="style_sobre.css">
+</head>
+<body class="entry-hidden"> 
+
+<header class="topo">
+    <a href="https://www.youtube.com/@Oprop123" target="_blank">
+        <img src="channels4_profile.jpg" alt="Canal Oprop">
+    </a>
+
+    <h1>Sobre Mim</h1>
+
+    <nav class="menu">
+        <a href="home.html" class="link-nav">Home</a>
+        <a href="Contato.html" class="link-nav">Contato</a>
+        <a href="sobre.html" class="p-ativo link-nav">Sobre mim</a>
+    </nav>
+</header>
+
+<hr>
+
+<main class="portfolio-lista">
+    
+    <div class="projeto-card">
+        <div class="projeto-info" style="width: 100%;">
+            <h2>Olá, eu sou o Emmanuel Felipe! 👋</h2>
+            <p>Tenho 15 anos e sou estudante de Desenvolvimento de Sistemas na ETE (Escola Técnica Estadual) Luiz Alves Lacerda. No meu tempo livre, sou apaixonado por jogar vôlei e programar. Meu objetivo atual é criar e vender sites profissionais para conquistar minha independência financeira e ajudar nas despesas da minha família.</p>
+        </div>
+    </div>
+
+    <div class="projeto-card">
+        <div class="projeto-img">
+            <a href="https://www.youtube.com/@Oprop123" target="_blank"><img src="channels4_profile.jpg" alt="Foto do Canal"></a>
+        </div>
+        <div class="projeto-info">
+            <h2>Meu Canal no YouTube</h2>
+            <p>Este canal nasceu de forma despretensiosa, focado inicialmente em gravar tutoriais. Com o tempo, ele evoluiu para o que é hoje. Embora não seja um canal gigante, ele tem um valor imenso para mim. Nesses 4 anos de jornada, aprimorei significativamente minhas habilidades de edição de vídeo e, hoje, encaro a criação de conteúdo como um passatempo gratificante.</p>
+            <button class="btn-assistir" onclick="abrirModal('modal-video')">Ver Mais</button>
+        </div>
+    </div>
+
+    <div class="projeto-card">
+        <div class="projeto-info" style="width: 100%;">
+            <h2>Minha Jornada na Programação 💻</h2>
+            <p>Minha carreira como programador começou no ano passado, quando ingressei no curso técnico de Desenvolvimento de Sistemas na ETE. Desde então, venho conciliando o ensino médio com o curso técnico em período integral. Este portfólio é um marco muito especial para mim, pois é o primeiro site que desenvolvo e publico oficialmente.</p>
+        </div>
+    </div>
+
+</main>
+
+<div id="modal-video" class="modal-fundo">
+    <div class="modal-conteudo">
+        <span class="fechar-modal" onclick="fecharModal('modal-video')">&times;</span>
+        <h2>Um pouco do meu trabalho</h2>
+        <iframe width="100%" height="315" src="https://drive.google.com/file/d/1uhDkicuNAeyzZrHfC0Dr3Gv01wztutt5/preview" title="Vídeo do Canal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+<script>
+    // --- ANIMAÇÕES DE TRANSIÇÃO DE PÁGINA ---
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+            document.body.classList.remove('entry-hidden');
+        }, 10);
+    });
+
+    document.querySelectorAll('.link-nav').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const destino = this.getAttribute('href');
+            if (destino && destino !== "sobre.html") {
+                e.preventDefault();
+                document.body.classList.add('saindo');
+                setTimeout(() => { window.location.href = destino; }, 400); 
+            }
+        });
+    });
+
+    // --- FUNÇÕES DO MODAL ---
+    function abrirModal(id) {
+        const modal = document.getElementById(id);
+        modal.style.display = 'flex'; // Torna visível
+        setTimeout(() => {
+            modal.classList.add('mostrar'); // Faz o fade-in
+        }, 10);
+    }
+
+    function fecharModal(id) {
+        const modal = document.getElementById(id);
+        modal.classList.remove('mostrar'); // Faz o fade-out
+        setTimeout(() => {
+            modal.style.display = 'none'; // Esconde depois da animação
+            
+            // Pausa o vídeo do YouTube quando o modal fecha
+            const iframe = modal.querySelector('iframe');
+            if(iframe) {
+                let iframeSrc = iframe.src;
+                iframe.src = iframeSrc; 
+            }
+        }, 300); // Tempo igual ao da transição no CSS
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style_home.css">
+</head>
+<body>
+
+<header class="topo">
+    <a href="https://www.youtube.com/@Oprop123" target="_blank">
+        <img src="channels4_profile.jpg" alt="Canal Oprop">
+    </a>
+
+    <h1>Home</h1>
+
+    <nav class="menu">
+        <a href="home.html" class="home link-nav">Home</a>
+        <a href="Contato.html" class="link-nav">Contato</a>
+        <a href="sobre.html" class="p-ativo link-nav">Sobre mim</a>
+    </nav>
+</header>
+
+<hr>
+
+<section class="carrossel-container">
+    <div class="carrossel-slide" id="carrossel">
+        <a href="https://www.youtube.com/watch?si=-huQ-f80Yn7A16Da&v=GpBYcZPfA1A&feature=youtu.be" target="_blank"><img src="1.jpg" alt="Banner 1"></a>
+        <a href="https://www.youtube.com/watch?si=nZp_W-Bdv7qEiMpW&v=vF4rjgUypXc&feature=youtu.be" target="_blank"><img src="2.jpg" alt="Banner 2"></a>
+    </div>
+
+    <button class="seta seta-esq" onclick="mudarSlide(-1)">&#10094;</button>
+    <button class="seta seta-dir" onclick="mudarSlide(1)">&#10095;</button>
+
+    <div class="indicadores">
+        <span class="ponto ativo" onclick="irParaSlide(0)"></span>
+        <span class="ponto" onclick="irParaSlide(1)"></span>
+    </div>
+</section>
+
+<main class="cards">
+    <article class="card">
+        <img src="1.jpg" alt="Anúncio">
+        <h2>O começo</h2>
+        <p>O começo da insania, uma série que não foi para a frente.</p>
+        <a href="#" onclick="abrirModal('modal1'); return false;">Ver mais</a>
+    </article>
+
+    <article class="card">
+        <img src="2.jpg" alt="Vídeo">
+        <h2>O começo</h2>
+        <p>O começo da Elemental, uma série que ainda acontece.</p>
+        <a href="#" onclick="abrirModal('modal2'); return false;">Ver mais</a>
+    </article>
+
+    <article class="card">
+        <img src="3.jpg" alt="Anúncio">
+        <h2>Construí Minha Primeira Casa</h2>
+        <p>Neste Episódio Oprop constroi sua casa</p>
+        <a href="#" onclick="abrirModal('modal3'); return false;">Ver mais</a>
+    </article>
+
+    <article class="card">
+        <img src="4.jpg" alt="Vídeo">
+        <h2>Especial de 500 inscritos!!!</h2>
+        <p>Alcançamos 500 incritos!!!</p>
+        <a href="#" onclick="abrirModal('modal4'); return false;">Ver mais</a>
+    </article>
+</main>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <span class="fechar">&times;</span>
+        <img src="1.jpg" style="width:100%; border-radius:10px;">
+        <h2>O começo</h2>
+        <p>EXEMPLO DE TEXTO.</p>
+        <a href="https://youtu.be/GpBYcZPfA1A?si=-huQ-f80Yn7A16Da" target="_blank" class="botao-modal">Abrir link</a>
+    </div>
+</div>
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <span class="fechar">&times;</span>
+        <img src="2.jpg" style="width:100%; border-radius:10px;">
+        <h2>O começo</h2>
+        <p>EXEMPLO DE TEXTO.</p>
+        <a href="https://youtu.be/vF4rjgUypXc?si=nZp_W-Bdv7qEiMpW" target="_blank" class="botao-modal">Abrir link</a>
+    </div>
+</div>
+
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <span class="fechar">&times;</span>
+        <img src="3.jpg" style="width:100%; border-radius:10px;">
+        <h2>Construí Minha Primeira Casa</h2>
+        <p>EXEMPLO DE TEXTO.</p>
+        <a href="https://youtu.be/JKiDFQEqm40?si=Lfdi4HGdxaVrr12E" target="_blank" class="botao-modal">Abrir link</a>
+    </div>
+</div>
+
+<div id="modal4" class="modal">
+    <div class="modal-content">
+        <span class="fechar">&times;</span>
+        <img src="4.jpg" style="width:100%; border-radius:10px;">
+        <h2>Especial de 500 inscritos!!!</h2>
+        <p>EXEMPLO DE TEXTO.</p>
+        <a href="https://youtu.be/ZpdDjNFmLoI?si=bz2ajwBpMYJX1ZEH" target="_blank" class="botao-modal">Abrir link</a>
+    </div>
+</div>
+
+<div class="banner">
+    <a href="https://www.youtube.com/@Oprop123" target="_blank">
+        <img src="banner.jpg" alt="Banner">
+    </a>
+    <div class="banner-texto"></div>
+</div>
+<main class="cards">
+    <article class="card">
+        <img src="1.jpg" alt="Anúncio">
+        <h2>O começo</h2>
+        <p>O começo da insania, uma série que não foi para a frente.</p>
+        <a href="#" onclick="abrirModal('modal1'); return false;">Ver mais</a>
+    </article>
+
+    <article class="card">
+        <img src="2.jpg" alt="Vídeo">
+        <h2>O começo</h2>
+        <p>O começo da Elemental, uma série que ainda acontece.</p>
+        <a href="#" onclick="abrirModal('modal2'); return false;">Ver mais</a>
+    </article>
+
+    <article class="card">
+        <img src="3.jpg" alt="Anúncio">
+        <h2>Construí Minha Primeira Casa</h2>
+        <p>Neste Episódio Oprop constroi sua casa</p>
+        <a href="#" onclick="abrirModal('modal3'); return false;">Ver mais</a>
+    </article>
+
+    <article class="card">
+        <img src="4.jpg" alt="Vídeo">
+        <h2>Especial de 500 inscritos!!!</h2>
+        <p>Alcançamos 500 incritos!!!</p>
+        <a href="#" onclick="abrirModal('modal4'); return false;">Ver mais</a>
+    </article>
+</main>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <span class="fechar">&times;</span>
+        <img src="1.jpg" style="width:100%; border-radius:10px;">
+        <h2>O começo</h2>
+        <p>EXEMPLO DE TEXTO.</p>
+        <a href="https://youtu.be/GpBYcZPfA1A?si=-huQ-f80Yn7A16Da" target="_blank" class="botao-modal">Abrir link</a>
+    </div>
+</div>
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <span class="fechar">&times;</span>
+        <img src="2.jpg" style="width:100%; border-radius:10px;">
+        <h2>O começo</h2>
+        <p>EXEMPLO DE TEXTO.</p>
+        <a href="https://youtu.be/vF4rjgUypXc?si=nZp_W-Bdv7qEiMpW" target="_blank" class="botao-modal">Abrir link</a>
+    </div>
+</div>
+
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <span class="fechar">&times;</span>
+        <img src="3.jpg" style="width:100%; border-radius:10px;">
+        <h2>Construí Minha Primeira Casa</h2>
+        <p>EXEMPLO DE TEXTO.</p>
+        <a href="https://youtu.be/JKiDFQEqm40?si=Lfdi4HGdxaVrr12E" target="_blank" class="botao-modal">Abrir link</a>
+    </div>
+</div>
+
+<div id="modal4" class="modal">
+    <div class="modal-content">
+        <span class="fechar">&times;</span>
+        <img src="4.jpg" style="width:100%; border-radius:10px;">
+        <h2>Especial de 500 inscritos!!!</h2>
+        <p>EXEMPLO DE TEXTO.</p>
+        <a href="https://youtu.be/ZpdDjNFmLoI?si=bz2ajwBpMYJX1ZEH" target="_blank" class="botao-modal">Abrir link</a>
+    </div>
+</div>
+<div class="banner">
+    <a href="https://www.youtube.com/@Oprop123" target="_blank">
+        <img src="banner.jpg" alt="Banner">
+    </a>
+    <div class="banner-texto"></div>
+</div>
+<script>
+    // --- 1. ANIMAÇÕES DA PÁGINA E LINKS ---
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => { document.body.classList.add('visivel'); }, 50);
+    });
+
+    document.querySelectorAll('.link-nav').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const destino = this.getAttribute('href');
+            if (destino && destino !== "home.html" && this.target !== "_blank") {
+                e.preventDefault();
+                document.body.classList.remove('visivel');
+                document.body.classList.add('saindo');
+                setTimeout(() => { window.location.href = destino; }, 400); 
+            }
+        });
+    });
+
+    // --- 2. MODAIS ---
+    function abrirModal(id){
+        const modal = document.getElementById(id);
+        modal.style.display = "flex";
+        setTimeout(() => { modal.classList.add("show"); }, 10);
+    }
+
+    document.querySelectorAll(".fechar").forEach(btn => {
+        btn.addEventListener("click", function(){
+            const modal = this.closest(".modal");
+            modal.classList.remove("show");
+            setTimeout(() => { modal.style.display = "none"; }, 200);
+        });
+    });
+
+    window.addEventListener("click", (e) => {
+        if(e.target.classList.contains("modal")){
+            e.target.classList.remove("show");
+            setTimeout(() => { e.target.style.display = "none"; }, 200);
+        }
+    });
+
+// --- 1. ANIMAÇÕES DA PÁGINA E LINKS (Mantido igual) ---
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => { document.body.classList.add('visivel'); }, 50);
+    });
+
+    document.querySelectorAll('.link-nav').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const destino = this.getAttribute('href');
+            if (destino && destino !== "home.html" && this.target !== "_blank") {
+                e.preventDefault();
+                document.body.classList.remove('visivel');
+                document.body.classList.add('saindo');
+                setTimeout(() => { window.location.href = destino; }, 400); 
+            }
+        });
+    });
+
+    // --- 2. MODAIS (Mantido igual) ---
+    function abrirModal(id){
+        const modal = document.getElementById(id);
+        modal.style.display = "flex";
+        setTimeout(() => { modal.classList.add("show"); }, 10);
+    }
+
+    document.querySelectorAll(".fechar").forEach(btn => {
+        btn.addEventListener("click", function(){
+            const modal = this.closest(".modal");
+            modal.classList.remove("show");
+            setTimeout(() => { modal.style.display = "none"; }, 200);
+        });
+    });
+
+    window.addEventListener("click", (e) => {
+        if(e.target.classList.contains("modal")){
+            e.target.classList.remove("show");
+            setTimeout(() => { e.target.style.display = "none"; }, 200);
+        }
+    });
+
+    // --- 3. CARROSSEL INFINITO COM ANIMAÇÃO PERFEITA ---
+    const carrossel = document.getElementById('carrossel');
+    const slidesOriginais = carrossel.querySelectorAll('a'); // Agora clonamos o <a> inteiro
+    const totalOriginais = slidesOriginais.length;
+    const pontos = document.querySelectorAll('.ponto');
+
+    // 1. Criar os clones do primeiro e último slide
+    const primeiroClone = slidesOriginais[0].cloneNode(true);
+    const ultimoClone = slidesOriginais[totalOriginais - 1].cloneNode(true);
+
+    // 2. Colocar os clones na "fita"
+    carrossel.appendChild(primeiroClone);
+    carrossel.insertBefore(ultimoClone, slidesOriginais[0]);
+
+    // 3. Estado inicial (Começamos no índice 1, pois o 0 agora é o clone)
+    let indice = 1;
+    let emTransicao = false;
+
+    // Posiciona a fita na primeira imagem real sem o usuário ver
+    carrossel.style.transform = `translateX(-100%)`;
+
+    function atualizarCarrossel() {
+        carrossel.style.transition = "transform 0.5s ease-in-out";
+        carrossel.style.transform = `translateX(-${indice * 100}%)`;
+
+        // Lógica das bolinhas ignorando os clones invisíveis
+        let indicePonto = indice - 1;
+        if (indicePonto === totalOriginais) indicePonto = 0;
+        if (indicePonto === -1) indicePonto = totalOriginais - 1;
+
+        pontos.forEach((p, i) => p.classList.toggle('ativo', i === indicePonto));
+    }
+
+    function mudarSlide(n) {
+        if (emTransicao) return; // Evita bugar se clicar muito rápido
+        emTransicao = true;
+        indice += n;
+        atualizarCarrossel();
+        resetarTimer();
+    }
+
+    function irParaSlide(n) {
+        if (emTransicao) return;
+        emTransicao = true;
+        indice = n + 1; // +1 para compensar o clone no início
+        atualizarCarrossel();
+        resetarTimer();
+    }
+
+    // 4. A MÁGICA DO TELETRANSPORTE (O que tira o efeito de rebobinar)
+    carrossel.addEventListener('transitionend', () => {
+        emTransicao = false; // Libera os cliques novamente
+        
+        // Se a fita deslizou suavemente até o clone do primeiro slide (no final)
+        if (indice === totalOriginais + 1) {
+            carrossel.style.transition = "none"; // Desliga a animação rápido
+            indice = 1; // Pula pro primeiro real
+            carrossel.style.transform = `translateX(-100%)`; // Aplica instantaneamente
+        }
+        
+        // Se a fita deslizou para trás até o clone do último slide (no começo)
+        if (indice === 0) {
+            carrossel.style.transition = "none";
+            indice = totalOriginais;
+            carrossel.style.transform = `translateX(-${indice * 100}%)`;
+        }
+    });
+
+    // Passagem automática
+    let timerCarrossel = setInterval(() => mudarSlide(1), 5000);
+    function resetarTimer() {
+        clearInterval(timerCarrossel);
+        timerCarrossel = setInterval(() => mudarSlide(1), 5000);
+    }
+</script>
+
+</body>
+</html>

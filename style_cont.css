@@ -1,0 +1,250 @@
+/* =========================================
+   CSS UNIFICADO DA PÁGINA DE CONTATO (ENTRADA, SAÍDA E ESTILO HOME)
+   ========================================= */
+
+/* ANIMAÇÃO DE ENTRADA/SAÍDA - CONTROLE DE TRANSIÇÃO */
+
+/* Base de animação para qualquer alteração de opacidade ou escala no body */
+body {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Estado de entrada (página carregando): Oculta e ligeiramente menor */
+body.entry-hidden {
+    opacity: 0;
+    transform: scale(0.97);
+}
+
+/* Estado de saída (clicando em link): Oculta e ligeiramente menor */
+body.saindo {
+    opacity: 0;
+    transform: scale(0.97);
+}
+
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    color: white;
+    background: linear-gradient(to bottom, #4A00E0, #8E2DE2);
+    background-attachment: fixed;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* Atualize no seu style_cont.css */
+.topo {
+    display: grid;
+    grid-template-columns: 100px 1fr auto; 
+    align-items: center;
+    gap: 20px;
+}
+.topo img {
+    width: 80px;
+    border-radius: 50%;
+    transition: .3s;
+    box-shadow: 0 5px 30px rgb(0, 0, 0, 0.5);
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.topo img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px 5px rgb(0, 0, 0, 0.8);
+}
+
+.topo h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+/* MENU (Idêntico ao da Home, exceto a classe de destaque) */
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    background: #ffffff22;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: .3s;
+    box-shadow: 0 10px 20px rgb(0, 0, 0, 0.5);
+    white-space: nowrap; /* EVITA A QUEBRA DE LINHA NO BOTÃO */
+}
+.menu a:hover {
+    background: white;
+    color: #4A00E0;
+    transform: scale(1.1);
+}
+
+/* Classe para o botão ativo (Contato na própria pág. de contato) */
+.menu a.p-contato-ativo {
+    background: white;
+    color: #4A00E0;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: white;
+    margin: 25px 0;
+    box-shadow: 0 0 10px white;
+}
+
+/* CENTRALIZAÇÃO DO FORMULÁRIO */
+.cards {
+    display: grid;
+    place-items: center;
+    min-height: 70vh;
+}
+
+/* CARD DE CONTATO (Herdando o Glassmorphism exato da Home) */
+.card {
+    background: #ffffff22;
+    border-radius: 18px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px #0005;
+    width: 450px;
+    max-width: 100%;
+    transition: .3s;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Efeito flutuar no hover (da Home) */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 35px 5px rgba(0, 0, 0, 0.6);
+}
+
+.card h2 {
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.card form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+/* INPUTS E TEXTAREA */
+.card input,
+.card textarea {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 15px;
+    transition: .3s ease;
+}
+
+.card input::placeholder,
+.card textarea::placeholder {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.card input:focus,
+.card textarea:focus {
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.card textarea {
+    grid-column: 1 / -1;
+    min-height: 150px;
+    resize: none;
+}
+
+/* BOTÃO DO FORMULÁRIO (Acompanhando o estilo arredondado e hover da Home) */
+.card button {
+    grid-column: 1 / -1;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4A00E0;
+    background: white;
+    padding: 12px;
+    border-radius: 20px; /* Arredondado igual menu/home */
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-top: 10px;
+}
+
+.card button:hover {
+    transform: scale(1.05); /* Zoom suave do botão da home */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    color: white;
+    background: #4A00E0;
+}
+
+.card button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* POPUP CUSTOMIZADO (Notificação Toast - Corrigido) */
+.popup-toast {
+    position: fixed;
+    top: 30px;
+    right: -350px; /* Escondido fora da tela na direita por padrão */
+    background: #28a745; /* Verde de sucesso */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    z-index: 1000;
+    /* Animação com efeito elástico cubic-bezier */
+    transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Adicionado via JavaScript para trazer a notificação para a tela */
+.popup-toast.show {
+    right: 30px; 
+}
+
+.popup-toast.erro {
+    background: #dc3545; /* Vermelho para erros */
+}
+
+/* RESPONSIVO (Idêntico ao da Home) */
+@media(max-width: 800px) {
+    .topo {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .topo img {
+        margin: auto;
+    }
+    .menu {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .card form {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,284 @@
+/* =========================================
+   CSS DA PÁGINA SOBRE MIM (COMPLETO)
+   ========================================= */
+
+/* RESET E ANIMAÇÕES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    min-height: 100vh;
+    color: white;
+    background: linear-gradient(to bottom, #4A00E0, #8E2DE2);
+    background-attachment: fixed;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+body.entry-hidden, body.saindo {
+    opacity: 0;
+    transform: scale(0.97);
+}
+
+/* =========================================
+   TOPO E MENU
+   ========================================= */
+.topo {
+    display: grid;
+    /* O 'auto' na última coluna evita que os botões fiquem espremidos */
+    grid-template-columns: 100px 1fr auto; 
+    align-items: center;
+    gap: 20px;
+}
+
+.topo img {
+    width: 80px;
+    border-radius: 50%;
+    transition: .3s;
+    box-shadow: 0 5px 30px rgb(0, 0, 0, 0.5);
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.topo img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px 5px rgb(0, 0, 0, 0.8);
+}
+
+.topo h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    flex-wrap: wrap; /* Garante que os botões não se amassam em ecrãs menores */
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    background: #ffffff22;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: .3s;
+    box-shadow: 0 10px 20px rgb(0, 0, 0, 0.5);
+    white-space: nowrap; /* Impede o texto de quebrar no meio do botão */
+}
+
+.menu a:hover, .menu a.p-ativo {
+    background: white;
+    color: #4A00E0;
+    transform: scale(1.1);
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: white;
+    margin: 25px 0;
+    box-shadow: 0 0 10px white;
+}
+
+/* =========================================
+   CARDS (APRESENTAÇÃO, CANAL E PROGRAMAÇÃO)
+   ========================================= */
+.portfolio-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 950px;
+    margin: 40px auto;
+}
+
+/* Base Glassmorphism (Efeito de Vidro) */
+.projeto-card {
+    display: flex;
+    align-items: center;
+    background: #ffffff22;
+    border-radius: 18px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px #0005;
+    gap: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    transition: .3s;
+}
+
+.projeto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 35px 5px rgba(0, 0, 0, 0.6);
+}
+
+.projeto-img {
+    flex-shrink: 0;
+}
+
+.projeto-img img {
+    width: 260px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+.projeto-img a {
+    width: 260px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+.projeto-img a :hover{
+    transform: scale(1.03);
+}
+.projeto-card:hover {
+    transform: scale(1.03);
+}
+
+.projeto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.projeto-info h2 { 
+    font-size: 28px; 
+}
+
+.projeto-info p { 
+    font-size: 16px; 
+    line-height: 1.6; 
+    color: rgba(255, 255, 255, 0.9); 
+}
+
+/* BOTÃO "VER MAIS" */
+.btn-assistir {
+    align-self: flex-start;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4A00E0;
+    background: white;
+    padding: 12px 25px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-top: 10px;
+}
+
+.btn-assistir:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    color: white;
+    background: #4A00E0;
+}
+
+/* =========================================
+   MODAL DE VÍDEO (Estilo Glassmorphism)
+   ========================================= */
+.modal-fundo {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semitransparente */
+    backdrop-filter: blur(8px); /* Efeito de vidro desfocado atrás */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-fundo.mostrar {
+    opacity: 1; /* Classe adicionada via JS para fazer o Fade-In */
+}
+
+.modal-conteudo {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-fundo.mostrar .modal-conteudo {
+    transform: scale(1); /* Dá um zoom suave no card quando abre */
+}
+
+.modal-conteudo h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.modal-conteudo iframe {
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.fechar-modal:hover {
+    color: #4A00E0;
+    transform: scale(1.1);
+}
+
+/* =========================================
+   RESPONSIVO (Para Telemóveis)
+   ========================================= */
+@media(max-width: 800px) {
+    .topo { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+    }
+    
+    .topo img { 
+        margin: auto; 
+    }
+    
+    .menu { 
+        justify-content: center; 
+        flex-wrap: wrap; 
+    }
+    
+    .projeto-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .projeto-img img { 
+        width: 100%; 
+    }
+    
+    .btn-assistir { 
+        align-self: center; 
+    }
+}
